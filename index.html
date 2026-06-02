@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="CET-4 词汇学习网站 - 4500+ 四级核心词汇，含音标、释义、例句与同义词分组">
+  <title>CET-4 词汇通 | 四级词汇学习</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Canvas Background -->
+  <canvas id="canvas-bg"></canvas>
+
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container">
+      <div class="header-content">
+        <div class="logo">
+          <span class="logo-icon">📚</span>
+          <span>CET-4 词汇通</span>
+        </div>
+        <nav>
+          <ul class="nav-links">
+            <li><a href="index.html" class="active">词汇学习</a></li>
+            <li><a href="quiz.html">测验挑战</a></li>
+            <li><a href="blessing.html">四级祝福</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="container">
+    <!-- Hero Section -->
+    <section class="hero">
+      <h1>CET-4 核心词汇库</h1>
+      <p>掌握 4500+ 四级词汇，科学分组记忆，高效备考</p>
+      <div class="stats-bar">
+        <div class="stat-item">
+          <div class="stat-value" id="stat-total">0</div>
+          <div class="stat-label">词汇总量</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-value" id="stat-syn">0</div>
+          <div class="stat-label">同义词组</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-value" id="stat-freq5">0</div>
+          <div class="stat-label">高频词汇</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Control Panel -->
+    <section class="control-panel">
+      <div class="control-row">
+        <div class="search-box">
+          <input type="text" id="search-input" placeholder="搜索单词、释义或音标...">
+        </div>
+        <select class="filter-select" id="sort-select">
+          <option value="alpha-asc">字母顺序 (A-Z)</option>
+          <option value="alpha-desc">字母顺序 (Z-A)</option>
+          <option value="freq-desc">频率 (高→低)</option>
+          <option value="freq-asc">频率 (低→高)</option>
+        </select>
+      </div>
+      <div class="control-row">
+        <span class="control-label">筛选:</span>
+        <select class="filter-select" id="freq-filter">
+          <option value="all">全部频率</option>
+          <option value="5">频率 5 (极高)</option>
+          <option value="4">频率 4 (高)</option>
+          <option value="3">频率 3 (中)</option>
+          <option value="2">频率 2 (低)</option>
+        </select>
+        <select class="filter-select" id="syn-filter">
+          <option value="all">全部词汇</option>
+          <option value="has-syn">有同义词组</option>
+          <option value="no-syn">无同义词组</option>
+        </select>
+        <select class="filter-select" id="letter-filter">
+          <option value="all">全部字母</option>
+        </select>
+        <button class="btn btn-secondary" id="reset-btn">🔄 重置</button>
+      </div>
+    </section>
+
+    <!-- Vocab Grid -->
+    <section id="vocab-container">
+      <div class="spinner" id="loading-spinner"></div>
+    </section>
+
+    <!-- Pagination -->
+    <section class="pagination" id="pagination"></section>
+  </main>
+
+  <!-- Scroll to Top -->
+  <button class="scroll-top" id="scroll-top" title="回到顶部">⬆</button>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <p class="footer-text">CET-4 词汇通 - 为大学英语四级考试打造</p>
+      <p class="credit-line">
+            Made with by <strong>王一同</strong> & <strong>刘佳梦</strong> | 
+            指导老师：<strong>张慧颖</strong> |
+        </p>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="data.js"></script>
+  <script src="canvas-bg.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="CET-4 词汇测验 - 看中文选英文 / 看英文选中文双模式">
+  <title>测验挑战 | CET-4 词汇通</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <canvas id="canvas-bg"></canvas>
+
+  <header class="site-header">
+    <div class="container">
+      <div class="header-content">
+        <div class="logo">
+          <span class="logo-icon">📝</span>
+          <span>CET-4 词汇通</span>
+        </div>
+        <nav>
+          <ul class="nav-links">
+            <li><a href="index.html">词汇学习</a></li>
+            <li><a href="quiz.html" class="active">测验挑战</a></li>
+            <li><a href="blessing.html">四级祝福</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <main class="container quiz-container">
+    <div class="quiz-header">
+      <h1 style="font-size:2rem;background:linear-gradient(135deg,var(--accent-light),#a78bfa);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">
+        🎯 词汇测验
+      </h1>
+      <p style="color:var(--text-secondary);margin-top:8px;">选择测验模式，挑战你的词汇量</p>
+    </div>
+
+    <!-- Mode Selector -->
+    <div class="quiz-mode-selector" id="mode-selector">
+      <button class="mode-btn active" data-mode="en2zh">
+        <span>🇬🇧</span> 看英文选中文
+      </button>
+      <button class="mode-btn" data-mode="zh2en">
+        <span>🇨🇳</span> 看中文选英文
+      </button>
+    </div>
+
+    <!-- Quiz Area -->
+    <div id="quiz-area">
+      <div class="quiz-progress" id="quiz-progress" style="display:none;">
+        <span class="progress-text" id="progress-text">1 / 20</span>
+        <div class="progress-bar">
+          <div class="progress-fill" id="progress-fill" style="width:5%"></div>
+        </div>
+        <span class="progress-text" id="score-text">✅ 0 | ❌ 0</span>
+      </div>
+
+      <div class="quiz-card" id="quiz-card">
+        <div style="text-align:center;padding:40px 20px;">
+          <p style="font-size:1.1rem;color:var(--text-secondary);margin-bottom:20px;">准备好开始挑战了吗？</p>
+          <button class="btn btn-primary" id="start-btn" style="font-size:1.1rem;padding:14px 36px;">
+            ▶ 开始测验
+          </button>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <button class="scroll-top" id="scroll-top" title="回到顶部">⬆</button>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p class="footer-text">CET-4 词汇通 - 在测验中巩固记忆</p>
+    </div>
+  </footer>
+
+  <script src="data.js"></script>
+  <script src="canvas-bg.js"></script>
+  <script src="quiz.js"></script>
+</body>
+</html>

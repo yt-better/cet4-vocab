@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="CET-4 四级祝福与考场注意事项">
+  <title>四级祝福 | CET-4 词汇通</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <canvas id="canvas-bg"></canvas>
+
+  <header class="site-header">
+    <div class="container">
+      <div class="header-content">
+        <div class="logo">
+          <span class="logo-icon">🍀</span>
+          <span>CET-4 词汇通</span>
+        </div>
+        <nav>
+          <ul class="nav-links">
+            <li><a href="index.html">词汇学习</a></li>
+            <li><a href="quiz.html">测验挑战</a></li>
+            <li><a href="blessing.html" class="active">四级祝福</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <main class="container blessing-container">
+    <!-- Blessing Card -->
+    <section class="blessing-card">
+      <h2>🎓 四级必过符</h2>
+      <p class="blessing-text">
+        星光不问赶路人，时光不负有心人。<br>
+        愿你提笔征战四级，合笔谈笑清风！
+      </p>
+      <p class="blessing-text">
+        每一个清晨的单词背诵，每一个深夜的真题演练，<br>
+        都将在考场上化作你从容自信的底气。
+      </p>
+      <p class="blessing-text" style="color:var(--accent-light);font-weight:600;">
+        祝所有考生：听力全会，阅读全对，翻译流畅，写作高分！
+      </p>
+    </section>
+
+    <!-- Exam Tips -->
+    <section class="blessing-card" style="text-align:left;">
+      <h2>📝 考场注意事项</h2>
+      <div class="tips-grid">
+        <div class="tip-card">
+          <h4>⏰ 时间分配</h4>
+          <p>写作 30 分钟 → 听力 25 分钟 → 阅读 40 分钟 → 翻译 30 分钟。预留 5 分钟填涂答题卡，切忌在一道题上纠缠过久。</p>
+        </div>
+        <div class="tip-card">
+          <h4>🎧 听力技巧</h4>
+          <p>提前浏览选项，圈画关键词。听到什么选什么原则在四级中往往有效。注意转折词 but、however 后面的内容。</p>
+        </div>
+        <div class="tip-card">
+          <h4>📖 阅读理解</h4>
+          <p>先读题干再读文章，带着问题找答案。长篇阅读先看选项划关键词，再扫读定位。不要过于纠结生词。</p>
+        </div>
+        <div class="tip-card">
+          <h4>✍️ 写作翻译</h4>
+          <p>写作注意三段式结构，开头结尾用高级句型。翻译遇到不会的词汇可用上位词或同义替换，确保句子完整通顺。</p>
+        </div>
+        <div class="tip-card">
+          <h4>🧠 心态调整</h4>
+          <p>考前保证充足睡眠，不要通宵复习。拿到试卷先深呼吸，按平时节奏答题。遇到难题标记后跳过，最后再回头。</p>
+        </div>
+        <div class="tip-card">
+          <h4>🎒 考前准备</h4>
+          <p>提前准备好准考证、身份证、2B 铅笔、橡皮、黑色签字笔和耳机（含备用电池）。提前踩点考场，规划好路线。</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Daily Word -->
+    <section class="blessing-card">
+      <h2>📚 每日一词</h2>
+      <div id="daily-word" style="margin-top:15px;">
+        <div class="spinner"></div>
+      </div>
+    </section>
+
+    <!-- Motivation -->
+    <section class="blessing-card">
+      <h2>💪 备考格言</h2>
+      <blockquote style="font-size:1.2rem;color:var(--text-primary);font-style:italic;line-height:1.8;margin:15px 0;padding:20px;border-left:3px solid var(--accent);background:var(--bg-secondary);border-radius:0 var(--radius-sm) var(--radius-sm) 0;">
+        "The future belongs to those who believe in the beauty of their dreams."
+      </blockquote>
+      <p style="color:var(--text-muted);font-size:0.9rem;">— Eleanor Roosevelt</p>
+      <p style="color:var(--text-secondary);margin-top:15px;font-size:0.95rem;">
+        坚持每日背诵 50 个单词，考前完成 3 轮复习，四级通关指日可待！
+      </p>
+    </section>
+  </main>
+
+  <button class="scroll-top" id="scroll-top" title="回到顶部">⬆</button>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p class="footer-text">CET-4 词汇通 - 祝你四级高分通过</p>
+    </div>
+  </footer>
+
+  <script src="data.js"></script>
+  <script src="canvas-bg.js"></script>
+  <script>
+    // Daily Word Feature
+    (function() {
+      const container = document.getElementById('daily-word');
+      if (typeof VOCAB_DATA === 'undefined' || !container) return;
+
+      // Use date as seed for consistent daily word
+      const today = new Date();
+      const seed = today.getFullYear() * 10000 + (today.getMonth() + 1) * 100 + today.getDate();
+      const index = seed % VOCAB_DATA.length;
+      const word = VOCAB_DATA[index];
+
+      container.innerHTML = `
+        <div style="background:var(--bg-secondary);border:1px solid var(--border);border-radius:var(--radius);padding:20px;text-align:center;">
+          <div style="font-size:1.5rem;font-weight:700;color:var(--accent-light);margin-bottom:5px;">${word.word}</div>
+          <div style="font-family:var(--font-mono);color:var(--text-muted);margin-bottom:10px;">${word.phonetic}</div>
+          <div style="color:var(--text-primary);margin-bottom:10px;">${word.meaning}</div>
+          <div style="font-style:italic;color:var(--text-secondary);font-size:0.9rem;padding:10px;background:rgba(79,140,255,0.05);border-radius:var(--radius-sm);border-left:2px solid var(--accent);">${word.example}</div>
+          <div style="margin-top:12px;color:var(--text-muted);font-size:0.8rem;">
+            ${today.getFullYear()}年${today.getMonth()+1}月${today.getDate()}日 · 频率 ${'★'.repeat(word.frequency)}${'☆'.repeat(5-word.frequency)}
+          </div>
+        </div>
+      `;
+
+      // Scroll to top
+      const scrollBtn = document.getElementById('scroll-top');
+      window.addEventListener('scroll', () => {
+        scrollBtn.classList.toggle('visible', window.scrollY > 400);
+      });
+      scrollBtn.addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+    })();
+  </script>
+</body>
+</html>
